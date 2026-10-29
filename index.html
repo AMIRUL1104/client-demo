@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUROOR - Premium Half-Zip Sweatshirt Collection</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              suroorTeal: "#053A35",
+              suroorGold: "#C29B38",
+              suroorBg: "#F9F7F5",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "serif"],
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #f9f7f5;
+      }
+      .serif-title {
+        font-family: "Playfair Display", serif;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="text-gray-800 antialiased pb-20 sm:pb-0">
+    <!-- Top Announcement Bar -->
+    <div
+      class="bg-suroorTeal text-suroorGold text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide border-b border-suroorGold/20"
+    >
+      ✨ সারাদেশে ক্যাশ অন ডেলিভারি সুবিধা! স্টক সীমিত।
+    </div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+    >
+      <div
+        class="max-w-4xl mx-auto px-4 py-2.5 flex items-center justify-between"
+      >
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-2.5">
+          <img
+            src="images/logo.png"
+            alt="SUROOR Logo"
+            class="h-9 sm:h-11 w-auto object-contain"
+          />
+          <span
+            class="text-xl sm:text-2xl font-bold serif-title text-suroorTeal tracking-wider"
+            >SUROOR</span
+          >
+        </div>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-2">
+          <button
+            onclick="openOrdersModal()"
+            class="px-3 py-1.5 text-xs font-semibold rounded-full border border-suroorTeal/20 text-suroorTeal hover:bg-suroorTeal hover:text-white transition-all flex items-center gap-1"
+          >
+            <svg
+              class="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              />
+            </svg>
+            <span
+              >Saved Orders
+              <span
+                id="orderBadge"
+                class="bg-suroorGold text-white text-[10px] px-1.5 py-0.5 rounded-full ml-0.5 hidden"
+                >0</span
+              ></span
+            >
+          </button>
+          <a
+            href="#orderSection"
+            class="px-3.5 py-1.5 text-xs font-bold rounded-full bg-suroorTeal text-suroorGold hover:bg-suroorTeal/90 transition-all"
+          >
+            অর্ডার করুন
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main
+      class="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-6 sm:space-y-8"
+    >
+      <!-- Hero Slider Section -->
+      <section
+        class="bg-white rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-sm border border-gray-100"
+      >
+        <div
+          class="relative rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 aspect-[4/5] sm:aspect-[16/11] max-h-[480px] w-full flex items-center justify-center"
+        >
+          <div id="sliderContainer" class="w-full h-full relative">
+            <img
+              id="slideImg0"
+              src="images/white.jpg"
+              alt="Pure White Sweatshirt"
+              class="w-full h-full object-cover object-top transition-opacity duration-500 opacity-100 absolute inset-0"
+            />
+            <img
+              id="slideImg1"
+              src="images/black.jpg"
+              alt="Classic Black Sweatshirt"
+              class="w-full h-full object-cover object-top transition-opacity duration-500 opacity-0 absolute inset-0"
+            />
+            <img
+              id="slideImg2"
+              src="images/maroon.jpg"
+              alt="Deep Maroon Sweatshirt"
+              class="w-full h-full object-cover object-top transition-opacity duration-500 opacity-0 absolute inset-0"
+            />
+          </div>
+
+          <!-- Slider Arrows -->
+          <button
+            onclick="prevSlide()"
+            class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-suroorTeal p-2 rounded-full shadow-md backdrop-blur-sm transition-all"
+          >
+            <svg
+              class="w-4 h-4 sm:w-5 sm:h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onclick="nextSlide()"
+            class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-suroorTeal p-2 rounded-full shadow-md backdrop-blur-sm transition-all"
+          >
+            <svg
+              class="w-4 h-4 sm:w-5 sm:h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Indicator Dots -->
+          <div
+            class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-2.5 py-1 rounded-full"
+          >
+            <button
+              onclick="setSlide(0)"
+              id="dot0"
+              class="w-2 h-2 rounded-full bg-suroorGold transition-all"
+            ></button>
+            <button
+              onclick="setSlide(1)"
+              id="dot1"
+              class="w-2 h-2 rounded-full bg-white/50 transition-all"
+            ></button>
+            <button
+              onclick="setSlide(2)"
+              id="dot2"
+              class="w-2 h-2 rounded-full bg-white/50 transition-all"
+            ></button>
+          </div>
+        </div>
+
+        <!-- Product Title & Price -->
+        <div class="mt-4 text-center space-y-1">
+          <span
+            class="text-[11px] font-bold uppercase tracking-widest text-suroorGold"
+            >Winter Collection</span
+          >
+          <h1 class="text-xl sm:text-2xl font-bold serif-title text-suroorTeal">
+            SUROOR Premium Half-Zip Sweatshirt
+          </h1>
+          <div class="flex items-center justify-center gap-2 pt-0.5">
+            <span class="text-2xl font-bold text-suroorTeal">৳১,২৯০</span>
+            <span class="text-sm text-gray-400 line-through">৳১,৮৫০</span>
+            <span
+              class="bg-red-50 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded border border-red-100"
+              >৩০% ছাড়</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Highlights Grid -->
+      <section class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+        <div
+          class="bg-white p-3 rounded-xl border border-gray-100 text-center space-y-0.5"
+        >
+          <span class="text-xl">🧶</span>
+          <h3 class="text-xs font-bold text-suroorTeal">300-320 GSM</h3>
+          <p class="text-[10px] text-gray-500">প্রিমিয়াম ফেব্রিক ওয়েট</p>
+        </div>
+        <div
+          class="bg-white p-3 rounded-xl border border-gray-100 text-center space-y-0.5"
+        >
+          <span class="text-xl">🌱</span>
+          <h3 class="text-xs font-bold text-suroorTeal">100% Cotton</h3>
+          <p class="text-[10px] text-gray-500">ব্রেদেবল ও আরামদায়ক</p>
+        </div>
+        <div
+          class="bg-white p-3 rounded-xl border border-gray-100 text-center space-y-0.5"
+        >
+          <span class="text-xl">✨</span>
+          <h3 class="text-xs font-bold text-suroorTeal">Honeycomb Knit</h3>
+          <p class="text-[10px] text-gray-500">আইকনিক টেক্সচার্ড লুক</p>
+        </div>
+        <div
+          class="bg-white p-3 rounded-xl border border-gray-100 text-center space-y-0.5"
+        >
+          <span class="text-xl">🤐</span>
+          <h3 class="text-xs font-bold text-suroorTeal">Metallic Zipper</h3>
+          <p class="text-[10px] text-gray-500">স্মার্ট হাফ-জিপ ডিজাইন</p>
+        </div>
+      </section>
+
+      <!-- Order Form Section -->
+      <section
+        id="orderSection"
+        class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-md border border-suroorGold/30 scroll-mt-16"
+      >
+        <div class="border-b border-gray-100 pb-3 mb-5 text-center">
+          <h2 class="text-lg sm:text-xl font-bold serif-title text-suroorTeal">
+            অর্ডার সম্পূর্ণ করতে নিচের ফর্মটি পূরণ করুন
+          </h2>
+          <p class="text-[11px] text-gray-500">
+            ক্যাশ অন ডেলিভারি - পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন
+          </p>
+        </div>
+
+        <form
+          id="checkoutForm"
+          onsubmit="handleOrderSubmit(event)"
+          class="space-y-5"
+        >
+          <!-- Product Picture Picker (Inside Form) -->
+          <div>
+            <label
+              class="block text-xs sm:text-sm font-bold text-suroorTeal mb-2"
+            >
+              ১. পছন্দের প্রোডাক্টের ছবি সিলেক্ট করুন:
+              <span class="text-red-500">*</span>
+            </label>
+            <div class="grid grid-cols-3 gap-2 sm:gap-3">
+              <button
+                type="button"
+                onclick="selectVariant(0, 'Pure White', 'images/white.jpg')"
+                id="variantBtn0"
+                class="group relative rounded-xl overflow-hidden border-2 border-suroorTeal bg-suroorBg p-1 transition-all"
+              >
+                <div
+                  class="aspect-square rounded-lg overflow-hidden bg-gray-200"
+                >
+                  <img
+                    src="images/white.jpg"
+                    alt="Pure White"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <span
+                  class="block text-[11px] font-bold text-suroorTeal mt-1 text-center truncate"
+                >
+                  হোয়াইট</span
+                >
+                <div
+                  id="checkMark0"
+                  class="absolute top-2 right-2 bg-suroorTeal text-suroorGold p-0.5 rounded-full"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="selectVariant(1, 'Classic Black', 'images/black.jpg')"
+                id="variantBtn1"
+                class="group relative rounded-xl overflow-hidden border-2 border-transparent bg-suroorBg p-1 transition-all"
+              >
+                <div
+                  class="aspect-square rounded-lg overflow-hidden bg-gray-200"
+                >
+                  <img
+                    src="images/black.jpg"
+                    alt="Classic Black"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <span
+                  class="block text-[11px] font-bold text-gray-700 mt-1 text-center truncate"
+                  >ক্লাসিক ব্ল্যাক</span
+                >
+                <div
+                  id="checkMark1"
+                  class="absolute top-2 right-2 bg-suroorTeal text-suroorGold p-0.5 rounded-full hidden"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onclick="selectVariant(2, 'Deep Maroon', 'images/maroon.jpg')"
+                id="variantBtn2"
+                class="group relative rounded-xl overflow-hidden border-2 border-transparent bg-suroorBg p-1 transition-all"
+              >
+                <div
+                  class="aspect-square rounded-lg overflow-hidden bg-gray-200"
+                >
+                  <img
+                    src="images/maroon.jpg"
+                    alt="Deep Maroon"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <span
+                  class="block text-[11px] font-bold text-gray-700 mt-1 text-center truncate"
+                  >ডিপ মেরুন</span
+                >
+                <div
+                  id="checkMark2"
+                  class="absolute top-2 right-2 bg-suroorTeal text-suroorGold p-0.5 rounded-full hidden"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Size Selection + Size Guide Modal Trigger -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="block text-xs sm:text-sm font-bold text-suroorTeal"
+                >২. সাইজ সিলেক্ট করুন:
+                <span class="text-red-500">*</span></label
+              >
+              <button
+                type="button"
+                onclick="openSizeGuideModal()"
+                class="text-xs text-suroorGold font-semibold hover:underline flex items-center gap-1"
+              >
+                📏 সঠিক সাইজ নির্বাচনে সাহায্য চান?
+              </button>
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="size"
+                  value="M"
+                  checked
+                  class="peer hidden"
+                />
+                <div
+                  class="py-2 text-center font-bold border-2 border-gray-200 rounded-lg peer-checked:border-suroorTeal peer-checked:bg-suroorTeal peer-checked:text-suroorGold text-xs sm:text-sm"
+                >
+                  M
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="size" value="L" class="peer hidden" />
+                <div
+                  class="py-2 text-center font-bold border-2 border-gray-200 rounded-lg peer-checked:border-suroorTeal peer-checked:bg-suroorTeal peer-checked:text-suroorGold text-xs sm:text-sm"
+                >
+                  L
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="size"
+                  value="XL"
+                  class="peer hidden"
+                />
+                <div
+                  class="py-2 text-center font-bold border-2 border-gray-200 rounded-lg peer-checked:border-suroorTeal peer-checked:bg-suroorTeal peer-checked:text-suroorGold text-xs sm:text-sm"
+                >
+                  XL
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="size"
+                  value="XXL"
+                  class="peer hidden"
+                />
+                <div
+                  class="py-2 text-center font-bold border-2 border-gray-200 rounded-lg peer-checked:border-suroorTeal peer-checked:bg-suroorTeal peer-checked:text-suroorGold text-xs sm:text-sm"
+                >
+                  XXL
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Customer Details Inputs -->
+          <div class="space-y-3.5 pt-1">
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 mb-1"
+                >আপনার নাম <span class="text-red-500">*</span></label
+              >
+              <input
+                type="text"
+                id="custName"
+                required
+                placeholder="মো: আরিফুল ইসলাম"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-suroorTeal focus:border-suroorTeal outline-none text-xs sm:text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 mb-1"
+                >মোবাইল নম্বর <span class="text-red-500">*</span></label
+              >
+              <input
+                type="tel"
+                id="custPhone"
+                required
+                placeholder="017XXXXXXXX"
+                pattern="[0-9]{11}"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-suroorTeal focus:border-suroorTeal outline-none text-xs sm:text-sm"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 mb-1"
+                >সম্পূর্ণ ঠিকানা (বাসা নম্বর, রোড, এলাকা)
+                <span class="text-red-500">*</span></label
+              >
+              <textarea
+                id="custAddress"
+                required
+                rows="2"
+                placeholder="হাউজ #১২, রোড #০৪, মিরপুর ১০, ঢাকা"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-suroorTeal focus:border-suroorTeal outline-none text-xs sm:text-sm"
+              ></textarea>
+            </div>
+
+            <!-- Delivery Charge Option -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-700 mb-1.5"
+                >ডেলিভারি এলাকা <span class="text-red-500">*</span></label
+              >
+              <div class="grid grid-cols-2 gap-2.5">
+                <label class="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="70"
+                    checked
+                    onchange="updateTotal()"
+                    class="peer hidden"
+                  />
+                  <div
+                    class="p-2.5 border-2 border-gray-200 rounded-xl peer-checked:border-suroorTeal peer-checked:bg-suroorTeal/5 text-center"
+                  >
+                    <span class="block text-[11px] font-semibold text-gray-600"
+                      >ঢাকার ভেতরে</span
+                    >
+                    <span class="block text-xs font-bold text-suroorTeal"
+                      >৳৭০</span
+                    >
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value="130"
+                    onchange="updateTotal()"
+                    class="peer hidden"
+                  />
+                  <div
+                    class="p-2.5 border-2 border-gray-200 rounded-xl peer-checked:border-suroorTeal peer-checked:bg-suroorTeal/5 text-center"
+                  >
+                    <span class="block text-[11px] font-semibold text-gray-600"
+                      >ঢাকার বাইরে</span
+                    >
+                    <span class="block text-xs font-bold text-suroorTeal"
+                      >৳১৩০</span
+                    >
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Summary -->
+          <div
+            class="border-t border-dashed border-gray-300 pt-3 space-y-1.5 text-xs"
+          >
+            <div class="flex justify-between text-gray-600">
+              <span>পণ্য মূল্য:</span>
+              <span class="font-medium">৳১,২৯০</span>
+            </div>
+            <div class="flex justify-between text-gray-600">
+              <span>ডেলিভারি চার্জ:</span>
+              <span id="delChargeText" class="font-medium">৳৭০</span>
+            </div>
+            <div
+              class="flex justify-between text-sm font-bold text-suroorTeal border-t border-gray-200 pt-2"
+            >
+              <span>সর্বমোট মূল্য:</span>
+              <span id="grandTotalText" class="text-lg text-suroorTeal"
+                >৳১,৩৬০</span
+              >
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full py-3.5 bg-suroorTeal text-suroorGold hover:bg-suroorTeal/95 font-bold text-base rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            অর্ডার নিশ্চিত করুন
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-suroorTeal text-white mt-12 border-t border-suroorGold/20"
+    >
+      <div class="max-w-4xl mx-auto px-4 py-8 text-center space-y-3">
+        <div class="flex items-center justify-center gap-2.5">
+          <img
+            src="images/logo.png"
+            alt="SUROOR"
+            class="h-10 w-auto object-contain"
+          />
+          <span class="text-2xl font-bold serif-title text-suroorGold"
+            >SUROOR</span
+          >
+        </div>
+        <p class="text-[10px] text-suroorGold/80 tracking-widest uppercase">
+          Premium Collection Lifestyle Brand
+        </p>
+        <p class="text-xs text-gray-300 max-w-md mx-auto">
+          Where heritage aesthetics meet contemporary trends. Elevate your
+          wardrobe with iconic fashion.
+        </p>
+        <div
+          class="text-[11px] text-gray-400 space-y-0.5 pt-2 border-t border-white/10"
+        >
+          <p>📍 Mirpur, Dhaka-1216 | 📞 Hotline: 01777-989194</p>
+          <p>✉️ suroor.info.bd@gmail.com</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky Mobile Order Bar -->
+    <div
+      class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 p-2.5 sm:hidden z-30 flex items-center justify-between shadow-lg"
+    >
+      <div>
+        <span class="text-[10px] text-gray-500 block">SUROOR Sweatshirt</span>
+        <span class="text-sm font-bold text-suroorTeal">৳১,২৯০</span>
+      </div>
+      <a
+        href="#orderSection"
+        class="px-5 py-2 bg-suroorTeal text-suroorGold font-bold text-xs rounded-lg shadow"
+      >
+        অর্ডার করুন
+      </a>
+    </div>
+
+    <!-- Size Guide Modal -->
+    <div
+      id="sizeGuideModal"
+      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl p-5 max-w-sm w-full text-center space-y-4 shadow-2xl"
+      >
+        <div class="flex justify-between items-center border-b pb-2">
+          <h3 class="font-bold text-suroorTeal text-sm">
+            📏 সাইজ গাইড (Inches)
+          </h3>
+          <button
+            onclick="closeSizeGuideModal()"
+            class="text-gray-400 text-sm font-bold"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="overflow-x-auto text-xs">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-suroorBg text-suroorTeal border-b">
+                <th class="p-2 font-bold">Size</th>
+                <th class="p-2 font-bold">Chest (ইঞ্চি)</th>
+                <th class="p-2 font-bold">Length (ইঞ্চি)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y text-gray-700">
+              <tr>
+                <td class="p-2 font-bold">M</td>
+                <td class="p-2">38" - 39"</td>
+                <td class="p-2">27"</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold">L</td>
+                <td class="p-2">40" - 41"</td>
+                <td class="p-2">28"</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold">XL</td>
+                <td class="p-2">42" - 43"</td>
+                <td class="p-2">29"</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold">XXL</td>
+                <td class="p-2">44" - 45"</td>
+                <td class="p-2">30"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          onclick="closeSizeGuideModal()"
+          class="w-full py-2 bg-suroorTeal text-suroorGold font-bold text-xs rounded-xl"
+        >
+          বন্ধ করুন
+        </button>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div
+      id="confirmModal"
+      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl p-5 max-w-sm w-full text-center space-y-3 shadow-2xl"
+      >
+        <div
+          class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-2xl"
+        >
+          ✓
+        </div>
+        <h3 class="text-base font-bold text-suroorTeal serif-title">
+          অর্ডারটি সফলভাবে জমা হয়েছে!
+        </h3>
+        <div
+          id="modalOrderSummary"
+          class="bg-suroorBg p-3 rounded-xl text-left text-xs space-y-1 text-gray-700"
+        ></div>
+        <button
+          onclick="closeConfirmModal()"
+          class="w-full py-2.5 bg-suroorTeal text-suroorGold font-bold text-xs rounded-xl"
+        >
+          ঠিক আছে
+        </button>
+      </div>
+    </div>
+
+    <!-- Saved Orders Demo Modal -->
+    <div
+      id="ordersModal"
+      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl p-5 max-w-lg w-full max-h-[80vh] flex flex-col shadow-2xl"
+      >
+        <div class="flex justify-between items-center pb-3 border-b">
+          <h3 class="text-sm font-bold text-suroorTeal">
+            Saved Orders (LocalStorage Demo)
+          </h3>
+          <button onclick="closeOrdersModal()" class="text-gray-400 font-bold">
+            ✕
+          </button>
+        </div>
+        <div
+          id="ordersList"
+          class="py-3 flex-1 overflow-y-auto space-y-2.5 hide-scrollbar"
+        ></div>
+        <div class="pt-3 border-t flex justify-between items-center text-xs">
+          <button
+            onclick="clearAllOrders()"
+            class="text-red-500 hover:underline"
+          >
+            সব অর্ডার মুছুন
+          </button>
+          <button
+            onclick="closeOrdersModal()"
+            class="px-3 py-1.5 bg-suroorTeal text-suroorGold font-bold rounded-lg"
+          >
+            বন্ধ করুন
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+      const variants = [
+        { name: "Pure White", img: "images/white.jpg" },
+        { name: "Classic Black", img: "images/black.jpg" },
+        { name: "Deep Maroon", img: "images/maroon.jpg" },
+      ];
+
+      let currentVariantIndex = 0;
+      let currentSlide = 0;
+      const basePrice = 1290;
+
+      function updateSlider() {
+        for (let i = 0; i < 3; i++) {
+          const img = document.getElementById(`slideImg${i}`);
+          const dot = document.getElementById(`dot${i}`);
+          if (i === currentSlide) {
+            img.classList.remove("opacity-0");
+            img.classList.add("opacity-100");
+            dot.classList.remove("bg-white/50");
+            dot.classList.add("bg-suroorGold");
+          } else {
+            img.classList.remove("opacity-100");
+            img.classList.add("opacity-0");
+            dot.classList.remove("bg-suroorGold");
+            dot.classList.add("bg-white/50");
+          }
+        }
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % 3;
+        updateSlider();
+      }
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + 3) % 3;
+        updateSlider();
+      }
+      function setSlide(index) {
+        currentSlide = index;
+        updateSlider();
+      }
+
+      function selectVariant(index, name, img) {
+        currentVariantIndex = index;
+        currentSlide = index;
+        updateSlider();
+
+        for (let i = 0; i < 3; i++) {
+          const btn = document.getElementById(`variantBtn${i}`);
+          const mark = document.getElementById(`checkMark${i}`);
+          if (i === index) {
+            btn.classList.add("border-suroorTeal");
+            btn.classList.remove("border-transparent");
+            mark.classList.remove("hidden");
+          } else {
+            btn.classList.remove("border-suroorTeal");
+            btn.classList.add("border-transparent");
+            mark.classList.add("hidden");
+          }
+        }
+      }
+
+      function updateTotal() {
+        const delCharge = parseInt(
+          document.querySelector('input[name="delivery"]:checked').value,
+        );
+        document.getElementById("delChargeText").innerText = `৳${delCharge}`;
+        document.getElementById("grandTotalText").innerText =
+          `৳${basePrice + delCharge}`;
+      }
+
+      function handleOrderSubmit(e) {
+        e.preventDefault();
+        const name = document.getElementById("custName").value;
+        const phone = document.getElementById("custPhone").value;
+        const address = document.getElementById("custAddress").value;
+        const size = document.querySelector('input[name="size"]:checked').value;
+        const delCharge = parseInt(
+          document.querySelector('input[name="delivery"]:checked').value,
+        );
+        const variantName = variants[currentVariantIndex].name;
+        const grandTotal = basePrice + delCharge;
+
+        const newOrder = {
+          id: "SUR-" + Math.floor(100000 + Math.random() * 900000),
+          name,
+          phone,
+          address,
+          size,
+          variantName,
+          variantImg: variants[currentVariantIndex].img,
+          total: grandTotal,
+        };
+
+        let savedOrders = JSON.parse(
+          localStorage.getItem("suroor_orders") || "[]",
+        );
+        savedOrders.push(newOrder);
+        localStorage.setItem("suroor_orders", JSON.stringify(savedOrders));
+
+        updateBadge();
+
+        document.getElementById("modalOrderSummary").innerHTML = `
+                <p><strong>আইডি:</strong> ${newOrder.id}</p>
+                <p><strong>প্রোডাক্ট:</strong> ${newOrder.variantName} (Size: ${newOrder.size})</p>
+                <p><strong>গ্রাহক:</strong> ${newOrder.name} (${newOrder.phone})</p>
+                <p><strong>ঠিকানা:</strong> ${newOrder.address}</p>
+                <p><strong>মোট মূল্য:</strong> ৳${newOrder.total}</p>
+            `;
+        document.getElementById("confirmModal").classList.remove("hidden");
+        document.getElementById("checkoutForm").reset();
+      }
+
+      function closeConfirmModal() {
+        document.getElementById("confirmModal").classList.add("hidden");
+      }
+      function openSizeGuideModal() {
+        document.getElementById("sizeGuideModal").classList.remove("hidden");
+      }
+      function closeSizeGuideModal() {
+        document.getElementById("sizeGuideModal").classList.add("hidden");
+      }
+
+      function updateBadge() {
+        const savedOrders = JSON.parse(
+          localStorage.getItem("suroor_orders") || "[]",
+        );
+        const badge = document.getElementById("orderBadge");
+        if (savedOrders.length > 0) {
+          badge.innerText = savedOrders.length;
+          badge.classList.remove("hidden");
+        } else {
+          badge.classList.add("hidden");
+        }
+      }
+
+      function openOrdersModal() {
+        const savedOrders = JSON.parse(
+          localStorage.getItem("suroor_orders") || "[]",
+        );
+        const listContainer = document.getElementById("ordersList");
+
+        if (savedOrders.length === 0) {
+          listContainer.innerHTML = `<p class="text-center text-xs text-gray-500 py-6">কোনো অর্ডার সংরক্ষিত নেই।</p>`;
+        } else {
+          listContainer.innerHTML = savedOrders
+            .map(
+              (ord, idx) => `
+                    <div class="bg-suroorBg p-2.5 rounded-xl border border-gray-200 text-xs flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <img src="${ord.variantImg}" class="w-10 h-12 object-cover rounded border">
+                            <div>
+                                <span class="font-bold text-suroorTeal">${ord.id}</span>
+                                <p class="font-semibold text-gray-800">${ord.name} - ${ord.phone}</p>
+                                <p class="text-gray-500 text-[10px]">${ord.variantName} | Size: ${ord.size}</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="font-bold text-suroorTeal text-xs block">৳${ord.total}</span>
+                            <button onclick="deleteOrder(${idx})" class="text-[10px] text-red-500 hover:underline">ডিলিট</button>
+                        </div>
+                    </div>
+                `,
+            )
+            .join("");
+        }
+        document.getElementById("ordersModal").classList.remove("hidden");
+      }
+
+      function closeOrdersModal() {
+        document.getElementById("ordersModal").classList.add("hidden");
+      }
+
+      function deleteOrder(index) {
+        let savedOrders = JSON.parse(
+          localStorage.getItem("suroor_orders") || "[]",
+        );
+        savedOrders.splice(index, 1);
+        localStorage.setItem("suroor_orders", JSON.stringify(savedOrders));
+        updateBadge();
+        openOrdersModal();
+      }
+
+      function clearAllOrders() {
+        if (confirm("সব অর্ডার মুছে ফেলতে চান?")) {
+          localStorage.removeItem("suroor_orders");
+          updateBadge();
+          openOrdersModal();
+        }
+      }
+
+      updateBadge();
+    </script>
+  </body>
+</html>
